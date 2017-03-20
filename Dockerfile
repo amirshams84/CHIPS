@@ -8,3 +8,4 @@ MAINTAINER Amir Shams <amir.shams84@gmail.com>
 # Software Website:     https://www.centos.org/
 # Description:          Centos7
 ##############################################################
+CMD ["/bin/bash"]
