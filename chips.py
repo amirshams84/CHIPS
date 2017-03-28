@@ -432,7 +432,7 @@ def main(argv):
 	print "1: MOTHUR"
 	print "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 	report("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-	mothur_exec_PATH = args.execdir + 'mothur'
+	mothur_exec_PATH = args.execdir + 'mothur/mothur'
 	if isFileExist(mothur_exec_PATH) is False:
 		error("Your mothur file path has Access/Exist issue")
 		print "Your mothur file path has Access/Exist issue"
