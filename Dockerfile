@@ -15,6 +15,21 @@ RUN yum install -y epel-release ;
 RUN yum install -y ansible git gcc gcc-c++ make net-tools sudo which wget file patch libtool texinfo tar unzip bzip2 bzip2-devel ; 
 RUN yum install -y openssl openssl-devel readline readline-devel sqlite-devel tk-devel zlib zlib-devel ncurses-devel python-pip mc ;
 RUN yum clean all ;
+CMD ["/bin/bash"]
+RUN mkdir /ChIps_EXECDIR /ChIps_OUTPUTDIR /ChIps_TESTDIR
+##############################################################
+# Dockerfile Version:   1.0
+# Software:             mothur
+# Software Version:     1.39
+# Software Website:     www.mothur.org
+# Description:          mothur 
+##############################################################
+
+RUN wget wget https://github.com/mothur/mothur/releases/download/v1.39.5/Mothur.linux_64.zip -P /ChIps_EXECDIR
+RUN cd /ChIps_EXECDIR
+RUN unzip Mothur.linux_64.zip
+RUN rm -rf Mothur.linux_64.zip __MACOSX
+RUN chmod -R 0755 ./mothur
 
 ##############################################################
 # Dockerfile Version:   1.0
@@ -24,6 +39,6 @@ RUN yum clean all ;
 # Description:          ChIps python workflow
 ##############################################################
 
-RUN wget https://raw.githubusercontent.com/amirshams84/Chips/master/chips.py -P $CURRENT_PATH
+RUN wget https://raw.githubusercontent.com/amirshams84/Chips/master/chips.py -P /
 
 CMD ["/bin/bash"]
