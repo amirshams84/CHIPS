@@ -31,6 +31,7 @@ RUN mkdir /ChIps_TESTDIR
 
 RUN wget https://github.com/mothur/mothur/releases/download/v1.39.5/Mothur.linux_64.zip -P /ChIps_EXECDIR
 RUN cd /ChIps_EXECDIR
+RUN pwd
 RUN unzip ./Mothur.linux_64.zip
 RUN rm -rf ./Mothur.linux_64.zip ./__MACOSX
 RUN chmod -R 0755 ./mothur
