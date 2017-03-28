@@ -17,7 +17,7 @@ RUN yum install -y ansible git gcc gcc-c++ make net-tools sudo which wget file p
 RUN yum install -y openssl openssl-devel readline readline-devel sqlite-devel tk-devel zlib zlib-devel ncurses-devel python-pip mc ;
 RUN yum clean all ;
 
-CMD ["/bin/bash"]
+ENTRYPOINT ["/bin/bash"]
 RUN mkdir /ChIps_EXECDIR
 RUN mkdir /ChIps_OUTPUTDIR
 RUN mkdir /ChIps_TESTDIR
@@ -44,4 +44,4 @@ RUN chmod -R 0755 /ChIps_EXECDIR/mothur
 
 RUN wget https://raw.githubusercontent.com/amirshams84/Chips/master/chips.py -P /
 
-CMD ["/bin/bash"]
+ENTRYPOINT ["/bin/bash"]
