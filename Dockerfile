@@ -18,7 +18,9 @@ RUN yum install -y openssl openssl-devel readline readline-devel sqlite-devel tk
 RUN yum clean all ;
 
 CMD ["/bin/bash"]
-RUN mkdir /ChIps_EXECDIR /ChIps_OUTPUTDIR /ChIps_TESTDIR
+RUN mkdir /ChIps_EXECDIR
+RUN mkdir /ChIps_OUTPUTDIR
+RUN mkdir /ChIps_TESTDIR
 ##############################################################
 # Dockerfile Version:   1.0
 # Software:             mothur
