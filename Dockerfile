@@ -30,7 +30,7 @@ RUN mkdir /ChIps_TESTDIR
 ##############################################################
 
 RUN wget https://github.com/mothur/mothur/releases/download/v1.39.5/Mothur.linux_64.zip -P /ChIps_EXECDIR
-RUN unzip /ChIps_EXECDIR/Mothur.linux_64.zip
+RUN unzip /ChIps_EXECDIR/Mothur.linux_64.zip -d /ChIps_EXECDIR
 RUN rm -rf /ChIps_EXECDIR/Mothur.linux_64.zip /ChIps_EXECDIR/__MACOSX
 RUN chmod -R 0755 /ChIps_EXECDIR/mothur
 
