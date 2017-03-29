@@ -23,9 +23,11 @@ import subprocess
 
 CHECK_MARK = "OK"
 FAILED_MARK = ":("
-DEFAULT_OUTPUTDIR = "/ChIps_OUTPUTDIR/"
-DEFAULT_TESTDIR = "/ChIps_TESTDIR/"
-DEFAULT_EXECDIR = "/ChIps_EXECDIR/"
+DEFAULT_INPUTDIR = "/INPUTDIR/"
+DEFAULT_OUTPUTDIR = "/OUTPUTDIR/"
+DEFAULT_INDEXDIR = "/INDEXDIR/"
+DEFAULT_TESTDIR = "/TESTDIR/"
+DEFAULT_EXECDIR = "/EXECDIR/"
 DEFAULT_PROCESSORS = str(multiprocessing.cpu_count())
 DEFAULT_PREFIX = "ChIps"
 # ################################### EXECUTIONS ############################### #
@@ -215,20 +217,6 @@ def isFileExist(fname):
 		return True
 	else:
 		return False
-
-
-def process_config_file(confile_File_PATH):
-	f = open(confile_File_PATH, 'rU')
-	config_LT = f.readlines()
-	inputdir = config_LT[0].split('inputdir:')[1]
-	inputdir = inputdir.rstrip()
-	if inputdir[-1] != '/':
-		inputdir += '/'
-	outputdir = config_LT[1].split('outputdir:')[1]
-	outputdir = outputdir.rstrip()
-	if outputdir[-1] != '/':
-		outputdir += '/'
-	return (inputdir, outputdir)
 # ################################### LOGGING & REPORTING ##################### #
 
 
@@ -360,7 +348,6 @@ def main(argv):
 	# ++++++++++++++++++++++++++++++ PARSE INPUT ARGUMENTS
 	parser = argparse.ArgumentParser()
 	main_file = parser.add_argument_group('Main file parameters')
-	main_file.add_argument("--config", help="configurartion file", required=True)
 	main_file.add_argument("--design", help="Design file: Tab delimited file to assign samples to a specific treatments, or other categories.", action='store')
 	args = parser.parse_args()
 	# ------------------------------ END OF PARSE INPUT ARGUMENTS
@@ -394,10 +381,10 @@ def main(argv):
 	report_string += "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" + '\n'
 	print "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 	# ++++++++++++++++++++++++++++++ INPUT DIRECTORY CHECKING
-	args.inputdir, args.outputdir = process_config_file(args.config)
+	#args.inputdir, args.outputdir = process_config_file(args.config)
 	# ------------------------------ END OF INPUT DIRECTORY CHECKING
 	# ++++++++++++++++++++++++++++++ OUTPUT DIRECTORY CHECKING
-	#args.outputdir = DEFAULT_OUTPUTDIR
+	args.outputdir = DEFAULT_OUTPUTDIR
 	global report_file
 	report_file = args.outputdir + "ChIps_report.txt"
 	check_it_and_remove_it(report_file, True)
