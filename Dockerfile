@@ -28,7 +28,7 @@ RUN pip install numpy
 RUN pip install scipy
 RUN pip install plotly
 RUN pip install pandas
-#RUN pip install biom-format
+RUN pip install biom-format
 RUN pip install xlrd
 RUN pip install openpyxl
 RUN pip install xlwt
@@ -43,8 +43,8 @@ RUN pip install zip
 ##############################################################
 
 ENTRYPOINT ["/bin/bash"]
-RUN mkdir /ChIps_EXECDIR /ChIps_OUTPUTDIR /ChIps_TESTDIR
-RUN chmod -R 0755 /ChIps_EXECDIR /ChIps_OUTPUTDIR /ChIps_TESTDIR
+RUN mkdir /EXECDIR /OUTPUTDIR /TESTDIR /INDEXDIR
+RUN chmod -R 0766 /EXECDIR /OUTPUTDIR /TESTDIR /INDEXDIR
 
 ##############################################################
 # Dockerfile Version:   1.0
@@ -54,10 +54,10 @@ RUN chmod -R 0755 /ChIps_EXECDIR /ChIps_OUTPUTDIR /ChIps_TESTDIR
 # Description:          mothur 
 ##############################################################
 
-RUN wget https://github.com/mothur/mothur/releases/download/v1.39.5/Mothur.linux_64.zip -P /ChIps_EXECDIR
-RUN unzip /ChIps_EXECDIR/Mothur.linux_64.zip -d /ChIps_EXECDIR
-RUN rm -rf /ChIps_EXECDIR/Mothur.linux_64.zip /ChIps_EXECDIR/__MACOSX
-RUN chmod -R 0755 /ChIps_EXECDIR/mothur
+RUN wget https://github.com/mothur/mothur/releases/download/v1.39.5/Mothur.linux_64.zip -P /EXECDIR
+RUN unzip /EXECDIR/Mothur.linux_64.zip -d /EXECDIR
+RUN rm -rf /EXECDIR/Mothur.linux_64.zip /EXECDIR/__MACOSX
+RUN chmod -R 0766 /ChIps_EXECDIR/mothur
 
 ##############################################################
 # Dockerfile Version:   1.0
