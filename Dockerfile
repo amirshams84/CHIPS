@@ -57,7 +57,7 @@ RUN chmod -R 0766 /EXECDIR /OUTPUTDIR /TESTDIR /INDEXDIR
 RUN wget https://github.com/mothur/mothur/releases/download/v1.39.5/Mothur.linux_64.zip -P /EXECDIR
 RUN unzip /EXECDIR/Mothur.linux_64.zip -d /EXECDIR
 RUN rm -rf /EXECDIR/Mothur.linux_64.zip /EXECDIR/__MACOSX
-RUN chmod -R 0766 /ChIps_EXECDIR/mothur
+RUN chmod -R 0766 /EXECDIR/mothur
 
 ##############################################################
 # Dockerfile Version:   1.0
