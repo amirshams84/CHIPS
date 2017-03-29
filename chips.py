@@ -221,9 +221,11 @@ def process_config_file(confile_File_PATH):
 	f = open(confile_File_PATH, 'rU')
 	config_LT = f.readlines()
 	inputdir = config_LT[0].split('inputdir:')[1]
+	inputdir = inputdir.rstrip()
 	if inputdir[-1] != '/':
 		inputdir += '/'
 	outputdir = config_LT[1].split('outputdir:')[1]
+	outputdir = outputdir.rstrip()
 	if outputdir[-1] != '/':
 		outputdir += '/'
 	return (inputdir, outputdir)
@@ -392,7 +394,7 @@ def main(argv):
 	report_string += "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" + '\n'
 	print "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 	# ++++++++++++++++++++++++++++++ INPUT DIRECTORY CHECKING
-	args.inputdir, args.outputdir = process_config_file(confile_File_PATH)
+	args.inputdir, args.outputdir = process_config_file(args.config)
 	# ------------------------------ END OF INPUT DIRECTORY CHECKING
 	# ++++++++++++++++++++++++++++++ OUTPUT DIRECTORY CHECKING
 	#args.outputdir = DEFAULT_OUTPUTDIR
