@@ -215,6 +215,14 @@ def isFileExist(fname):
 		return True
 	else:
 		return False
+
+
+def process_config_file(confile_File_PATH):
+	f = open(confile_File_PATH, 'rU')
+	config_LT = f.readlines()
+	inputdir = config_LT[0].split('inputdir:')[1]
+	outputdir = config_LT[1].split('outputdir:')[1]
+	return (inputdir, outputdir)
 # ################################### LOGGING & REPORTING ##################### #
 
 
@@ -346,7 +354,7 @@ def main(argv):
 	# ++++++++++++++++++++++++++++++ PARSE INPUT ARGUMENTS
 	parser = argparse.ArgumentParser()
 	main_file = parser.add_argument_group('Main file parameters')
-	main_file.add_argument("--biom", help="Universal microbiome abundance matrix file(http://biom-format.org)", action='store')
+	main_file.add_argument("--config", help="configurartion file", required=True)
 	main_file.add_argument("--design", help="Design file: Tab delimited file to assign samples to a specific treatments, or other categories.", action='store')
 	args = parser.parse_args()
 	# ------------------------------ END OF PARSE INPUT ARGUMENTS
@@ -379,9 +387,11 @@ def main(argv):
 	print "ARGUMENTS:"
 	report_string += "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" + '\n'
 	print "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
-
+	# ++++++++++++++++++++++++++++++ INPUT DIRECTORY CHECKING
+	args.inputdir, args.outputdir = process_config_file(confile_File_PATH)
+	# ------------------------------ END OF INPUT DIRECTORY CHECKING
 	# ++++++++++++++++++++++++++++++ OUTPUT DIRECTORY CHECKING
-	args.outputdir = DEFAULT_OUTPUTDIR
+	#args.outputdir = DEFAULT_OUTPUTDIR
 	global report_file
 	report_file = args.outputdir + "ChIps_report.txt"
 	check_it_and_remove_it(report_file, True)
