@@ -16,6 +16,29 @@ RUN yum install -y epel-release ;
 RUN yum install -y ansible git gcc gcc-c++ make net-tools sudo which wget file patch libtool texinfo tar unzip bzip2 bzip2-devel ; 
 RUN yum install -y openssl openssl-devel readline readline-devel sqlite-devel tk-devel zlib zlib-devel ncurses-devel python-pip mc ;
 RUN yum clean all ;
+##############################################################
+# Software:             PIP INSTALL PACKAGES
+# Software Version:     1.0
+# Software Website:     -
+# Description:          required javascript library
+##############################################################
+RUN pip install numpy
+RUN pip install scipy
+RUN pip install plotly
+RUN pip install pandas
+RUN pip install biom-format
+RUN pip install xlrd
+RUN pip install openpyxl
+RUN pip install xlwt
+RUN pip install XlsxWriter
+RUN pip install lxml
+RUN pip install zip
+##############################################################
+# Software:             Regular
+# Software Version:     1.0
+# Software Website:     -
+# Description:          required javascript library
+##############################################################
 
 ENTRYPOINT ["/bin/bash"]
 RUN mkdir /ChIps_EXECDIR /ChIps_OUTPUTDIR /ChIps_TESTDIR
