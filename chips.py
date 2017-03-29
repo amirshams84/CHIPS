@@ -221,7 +221,11 @@ def process_config_file(confile_File_PATH):
 	f = open(confile_File_PATH, 'rU')
 	config_LT = f.readlines()
 	inputdir = config_LT[0].split('inputdir:')[1]
+	if inputdir[-1] != '/':
+		inputdir += '/'
 	outputdir = config_LT[1].split('outputdir:')[1]
+	if outputdir[-1] != '/':
+		outputdir += '/'
 	return (inputdir, outputdir)
 # ################################### LOGGING & REPORTING ##################### #
 
