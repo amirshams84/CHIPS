@@ -22,6 +22,7 @@ RUN yum clean all ;
 # Software Website:     -
 # Description:          required javascript library
 ##############################################################
+RUN pip install --upgrade pip
 RUN pip install numpy
 RUN pip install scipy
 RUN pip install plotly
