@@ -28,7 +28,7 @@ RUN pip install numpy
 RUN pip install scipy
 RUN pip install plotly
 RUN pip install pandas
-RUN pip install biom-format
+#RUN pip install biom-format
 RUN pip install xlrd
 RUN pip install openpyxl
 RUN pip install xlwt
