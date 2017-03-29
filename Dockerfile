@@ -18,9 +18,10 @@ RUN yum install -y openssl openssl-devel readline readline-devel sqlite-devel tk
 RUN yum clean all ;
 
 ENTRYPOINT ["/bin/bash"]
-RUN mkdir /ChIps_EXECDIR
-RUN mkdir /ChIps_OUTPUTDIR
-RUN mkdir /ChIps_TESTDIR
+RUN mkdir /ChIps_EXECDIR /ChIps_OUTPUTDIR /ChIps_TESTDIR
+RUN chmod -R 0755 /ChIps_EXECDIR /ChIps_OUTPUTDIR /ChIps_TESTDIR
+# create bind points for NIH HPC environment
+RUN mkdir /gpfs /spin1 /gs2 /gs3 /gs4 /gs5 /gs6 /data /scratch /fdb /lscratch
 ##############################################################
 # Dockerfile Version:   1.0
 # Software:             mothur
