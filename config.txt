@@ -1,0 +1,2 @@
+inputdir:/data/shamsaddinisha/chips/fastq
+outputdir:/data/shamsaddinisha/chips/chip_seq_analysis
