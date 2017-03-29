@@ -43,8 +43,8 @@ RUN pip install zip
 ##############################################################
 
 ENTRYPOINT ["/bin/bash"]
-RUN mkdir /EXECDIR /OUTPUTDIR /TESTDIR /INDEXDIR
-RUN chmod -R 0766 /EXECDIR /OUTPUTDIR /TESTDIR /INDEXDIR
+RUN mkdir /INPUTDIR /EXECDIR /OUTPUTDIR /TESTDIR /INDEXDIR
+RUN chmod -R 0766 /INPUTDIR /EXECDIR /OUTPUTDIR /TESTDIR /INDEXDIR
 
 ##############################################################
 # Dockerfile Version:   1.0
