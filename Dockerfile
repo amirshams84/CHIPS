@@ -68,10 +68,11 @@ RUN chmod -R 0755 /EXECDIR/mothur
 # Description:          bowtie 
 ##############################################################
 
-RUN wget https://sourceforge.net/projects/bowtie-bio/files/bowtie/1.2.0/bowtie-1.2-linux-x86_64.zip -P /EXECDIR
-RUN unzip /EXECDIR/bowtie-1.2-linux-x86_64.zip -d /EXECDIR
-RUN rm -rf /EXECDIR/bowtie-1.2-linux-x86_64.zip
-RUN chmod -R 0755 /EXECDIR/bowtie-1.2
+RUN mkdir /EXECDIR/bowtie
+RUN wget https://sourceforge.net/projects/bowtie-bio/files/bowtie/1.2.0/bowtie-1.2-linux-x86_64.zip -P /EXECDIR/bowtie
+RUN unzip /EXECDIR/bowtie/bowtie-1.2-linux-x86_64.zip -d /EXECDIR/bowtie
+RUN rm -rf /EXECDIR/bowtie/bowtie-1.2-linux-x86_64.zip
+RUN chmod -R 0755 /EXECDIR/bowtie/bowtie-1.2
 
 ##############################################################
 # Dockerfile Version:   1.0
