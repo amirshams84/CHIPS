@@ -1,0 +1,4 @@
+#!/usr/local/Anaconda/envs_app/macs/2.1.1.20160309/bin/python
+# EASY-INSTALL-SCRIPT: 'MACS2==2.1.1.20160309','macs2'
+__requires__ = 'MACS2==2.1.1.20160309'
+__import__('pkg_resources').run_script('MACS2==2.1.1.20160309', 'macs2')
