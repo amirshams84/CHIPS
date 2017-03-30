@@ -45,7 +45,7 @@ RUN pip install zip
 
 ENTRYPOINT ["/bin/bash"]
 RUN mkdir /INPUTDIR /EXECDIR /OUTPUTDIR /TESTDIR /INDEXDIR
-RUN chmod -R 0766 /INPUTDIR /EXECDIR /OUTPUTDIR /TESTDIR /INDEXDIR
+RUN chmod -R 0755 /INPUTDIR /EXECDIR /OUTPUTDIR /TESTDIR /INDEXDIR
 
 ##############################################################
 # Dockerfile Version:   1.0
@@ -58,7 +58,20 @@ RUN chmod -R 0766 /INPUTDIR /EXECDIR /OUTPUTDIR /TESTDIR /INDEXDIR
 RUN wget https://github.com/mothur/mothur/releases/download/v1.39.5/Mothur.linux_64.zip -P /EXECDIR
 RUN unzip /EXECDIR/Mothur.linux_64.zip -d /EXECDIR
 RUN rm -rf /EXECDIR/Mothur.linux_64.zip /EXECDIR/__MACOSX
-RUN chmod -R 0766 /EXECDIR/mothur
+RUN chmod -R 0755 /EXECDIR/mothur
+
+##############################################################
+# Dockerfile Version:   1.0
+# Software:             bowtie
+# Software Version:     1.2
+# Software Website:     bowtie
+# Description:          bowtie 
+##############################################################
+
+RUN wget https://sourceforge.net/projects/bowtie-bio/files/bowtie/1.2.0/bowtie-1.2-linux-x86_64.zip -P /EXECDIR
+RUN unzip /EXECDIR/bowtie-1.2-linux-x86_64.zip -d /EXECDIR
+RUN rm -rf /EXECDIR/bowtie-1.2-linux-x86_64.zip
+RUN chmod -R 0755 /EXECDIR/bowtie-1.2
 
 ##############################################################
 # Dockerfile Version:   1.0
