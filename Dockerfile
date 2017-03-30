@@ -74,20 +74,24 @@ RUN unzip /EXECDIR/bowtie/bowtie-1.2-linux-x86_64.zip -d /EXECDIR/bowtie
 RUN rm -rf /EXECDIR/bowtie/bowtie-1.2-linux-x86_64.zip
 RUN chmod -R 0755 /EXECDIR/bowtie/bowtie-1.2
 
+
 ##############################################################
 # Dockerfile Version:   1.0
-# Software:             MACS
+# Software:             SAMTOOLS
 # Software Version:     1.4.2
-# Software Website:     MACS
-# Description:          MACS 
+# Software Website:     SAMTOOLS
+# Description:          SAMTOOLS 
 ##############################################################
 
-RUN mkdir /EXECDIR/macs
-RUN wget https://github.com/downloads/taoliu/MACS/MACS-1.4.2-1.tar.gz -P /EXECDIR/macs
-RUN tar zxvf /EXECDIR/macs/MACS-1.4.2-1.tar.gz -d /EXECDIR/macs
-RUN rm -rf /EXECDIR/macs/MACS-1.4.2-1.tar.gz
-RUN python /EXECDIR/macs/MACS-1.4.2/setup.py install
-RUN chmod -R 0755 /EXECDIR/macs/MACS-1.4.2
+RUN mkdir /EXECDIR/samtools
+RUN wget https://github.com/samtools/samtools/releases/download/1.3.1/samtools-1.3.1.tar.bz2 -P /EXECDIR/samtools
+RUN tar xvjf /EXECDIR/samtools/samtools-1.3.1.tar.bz2 -C /EXECDIR/samtools
+RUN rm -rf /EXECDIR/samtools/samtools-1.3.1.tar.bz2
+RUN chmod -R 0755 /EXECDIR/samtools/samtools-1.3.1
+RUN cd /EXECDIR/samtools/samtools-1.3.1/
+RUN make
+RUN make prefix=. install
+
 
 ##############################################################
 # Dockerfile Version:   1.0
