@@ -76,6 +76,21 @@ RUN chmod -R 0755 /EXECDIR/bowtie/bowtie-1.2
 
 ##############################################################
 # Dockerfile Version:   1.0
+# Software:             MACS
+# Software Version:     1.4.2
+# Software Website:     MACS
+# Description:          MACS 
+##############################################################
+
+RUN mkdir /EXECDIR/macs
+RUN wget https://github.com/downloads/taoliu/MACS/MACS-1.4.2-1.tar.gz -P /EXECDIR/macs
+RUN tar zxvf /EXECDIR/macs/MACS-1.4.2-1.tar.gz -d /EXECDIR/macs
+RUN rm -rf /EXECDIR/macs/MACS-1.4.2-1.tar.gz
+RUN python /EXECDIR/macs/MACS-1.4.2/setup.py install
+RUN chmod -R 0755 /EXECDIR/macs/MACS-1.4.2
+
+##############################################################
+# Dockerfile Version:   1.0
 # Software:             ChIps
 # Software Version:     1.0
 # Software Website:     
