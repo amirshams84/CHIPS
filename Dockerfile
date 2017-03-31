@@ -88,9 +88,8 @@ RUN wget https://github.com/samtools/samtools/releases/download/1.3.1/samtools-1
 RUN tar xvjf /EXECDIR/samtools/samtools-1.3.1.tar.bz2 -C /EXECDIR/samtools
 RUN rm -rf /EXECDIR/samtools/samtools-1.3.1.tar.bz2
 RUN chmod -R 0755 /EXECDIR/samtools/samtools-1.3.1
-RUN cd /EXECDIR/samtools/samtools-1.3.1/
-RUN make /EXECDIR/samtools/samtools-1.3.1/
-RUN make prefix=/EXECDIR/samtools/samtools-1.3.1/ /EXECDIR/samtools/samtools-1.3.1/ install
+RUN make -p /EXECDIR/samtools/samtools-1.3.1/
+RUN make -p /EXECDIR/samtools/samtools-1.3.1/ prefix=/EXECDIR/samtools/samtools-1.3.1/ install
 
 
 ##############################################################
