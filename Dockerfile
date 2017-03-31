@@ -85,7 +85,7 @@ RUN chmod -R 0755 /EXECDIR/bowtie/bowtie-1.2
 
 RUN mkdir /EXECDIR/samtools
 RUN wget https://github.com/samtools/samtools/releases/download/1.3.1/samtools-1.3.1.tar.bz2 -P /EXECDIR/samtools
-RUN tar xvjf /EXECDIR/samtools/samtools-1.3.1.tar.bz2 -C /EXECDIR/samtools
+RUN tar xjf /EXECDIR/samtools/samtools-1.3.1.tar.bz2 -C /EXECDIR/samtools
 RUN rm -rf /EXECDIR/samtools/samtools-1.3.1.tar.bz2
 RUN chmod -R 0755 /EXECDIR/samtools/samtools-1.3.1
 WORKDIR /EXECDIR/samtools/samtools-1.3.1
@@ -102,7 +102,7 @@ RUN make prefix=. install
 WORKDIR /
 RUN mkdir/EXECDIR/macs
 RUN wget https://pypi.python.org/packages/9f/99/a8ac96b357f6b0a6f559fe0f5a81bcae12b98579551620ce07c5183aee2c/MACS2-2.1.1.20160309.tar.gz -P /EXECDIR/macs
-RUN tar zxvf /EXECDIR/macs/MACS2-2.1.1.20160309.tar.gz -C /EXECDIR/macs
+RUN tar zxf /EXECDIR/macs/MACS2-2.1.1.20160309.tar.gz -C /EXECDIR/macs
 RUN rm -rf /EXECDIR/macs/MACS2-2.1.1.20160309.tar.gz
 RUN chmod -R 0755 /EXECDIR/macs/MACS2-2.1.1.20160309
 WORKDIR /EXECDIR/macs/MACS2-2.1.1.20160309
