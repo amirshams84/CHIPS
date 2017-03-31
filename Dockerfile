@@ -54,7 +54,7 @@ RUN chmod -R 0755 /INPUTDIR /EXECDIR /OUTPUTDIR /TESTDIR /INDEXDIR
 # Software Website:     www.mothur.org
 # Description:          mothur 
 ##############################################################
-
+ 
 RUN wget https://github.com/mothur/mothur/releases/download/v1.39.5/Mothur.linux_64.zip -P /EXECDIR
 RUN unzip /EXECDIR/Mothur.linux_64.zip -d /EXECDIR
 RUN rm -rf /EXECDIR/Mothur.linux_64.zip /EXECDIR/__MACOSX
@@ -88,8 +88,9 @@ RUN wget https://github.com/samtools/samtools/releases/download/1.3.1/samtools-1
 RUN tar xvjf /EXECDIR/samtools/samtools-1.3.1.tar.bz2 -C /EXECDIR/samtools
 RUN rm -rf /EXECDIR/samtools/samtools-1.3.1.tar.bz2
 RUN chmod -R 0755 /EXECDIR/samtools/samtools-1.3.1
-RUN make -p /EXECDIR/samtools/samtools-1.3.1/
-RUN make -p /EXECDIR/samtools/samtools-1.3.1/ prefix=/EXECDIR/samtools/samtools-1.3.1/ install
+WORKDIR /EXECDIR/samtools/samtools-1.3.1
+RUN make
+RUN make prefix=. install
 
 
 ##############################################################
@@ -99,7 +100,7 @@ RUN make -p /EXECDIR/samtools/samtools-1.3.1/ prefix=/EXECDIR/samtools/samtools-
 # Software Website:     
 # Description:          ChIps python workflow
 ##############################################################
-
+WORKDIR /
 RUN wget https://raw.githubusercontent.com/amirshams84/Chips/master/chips.py -P /
 
 ENTRYPOINT ["/bin/bash"]
