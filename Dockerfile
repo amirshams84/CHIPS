@@ -15,7 +15,7 @@ RUN yum clean all ;
 RUN yum install -y epel-release ;
 RUN yum install -y ansible git gcc gcc-c++ make net-tools sudo which wget file patch libtool texinfo tar unzip bzip2 bzip2-devel ; 
 RUN yum install -y openssl openssl-devel readline readline-devel sqlite-devel tk-devel zlib zlib-devel ncurses-devel python-pip mc ;
-RUN yum install -y tbb psmisc ;
+RUN yum install -y tbb psmisc python-devel ;
 RUN yum clean all ;
 ##############################################################
 # Software:             PIP INSTALL PACKAGES
@@ -95,17 +95,17 @@ RUN make prefix=. install
 ##############################################################
 # Dockerfile Version:   1.0
 # Software:             MACS
-# Software Version:     1.4.2
+# Software Version:     2.2.1
 # Software Website:     MACS
 # Description:          MACS 
 ##############################################################
 
 RUN mkdir/EXECDIR/macs
-RUN wget wget https://github.com/downloads/taoliu/MACS/MACS-1.4.2-1.tar.gz -P /EXECDIR/macs
-RUN tar zxvf /EXECDIR/macs/MACS-1.4.2-1.tar.gz -C /EXECDIR/macs
-RUN rm -rf /EXECDIR/macs/MACS-1.4.2-1.tar.gz
-RUN chmod -R 0755 /EXECDIR/macs/MACS-1.4.2
-WORKDIR /EXECDIR/macs/MACS-1.4.2
+RUN wget https://pypi.python.org/packages/9f/99/a8ac96b357f6b0a6f559fe0f5a81bcae12b98579551620ce07c5183aee2c/MACS2-2.1.1.20160309.tar.gz -P /EXECDIR/macs
+RUN tar zxvf /EXECDIR/macs/MACS2-2.1.1.20160309.tar.gz -C /EXECDIR/macs
+RUN rm -rf /EXECDIR/macs/MACS2-2.1.1.20160309.tar.gz
+RUN chmod -R 0755 /EXECDIR/macs/MACS2-2.1.1.20160309
+WORKDIR /EXECDIR/macs/MACS2-2.1.1.20160309
 RUN python setup.py install --user
 
 ##############################################################
