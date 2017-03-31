@@ -89,8 +89,8 @@ RUN tar xvjf /EXECDIR/samtools/samtools-1.3.1.tar.bz2 -C /EXECDIR/samtools
 RUN rm -rf /EXECDIR/samtools/samtools-1.3.1.tar.bz2
 RUN chmod -R 0755 /EXECDIR/samtools/samtools-1.3.1
 RUN cd /EXECDIR/samtools/samtools-1.3.1/
-RUN make
-RUN make prefix=. install
+RUN make /EXECDIR/samtools/samtools-1.3.1/
+RUN make prefix=/EXECDIR/samtools/samtools-1.3.1/ /EXECDIR/samtools/samtools-1.3.1/ install
 
 
 ##############################################################
