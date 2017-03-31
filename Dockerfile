@@ -100,7 +100,7 @@ RUN make prefix=. install
 # Description:          MACS 
 ##############################################################
 WORKDIR /
-RUN mkdir/EXECDIR/macs
+RUN mkdir /EXECDIR/macs
 RUN wget https://pypi.python.org/packages/9f/99/a8ac96b357f6b0a6f559fe0f5a81bcae12b98579551620ce07c5183aee2c/MACS2-2.1.1.20160309.tar.gz -P /EXECDIR/macs
 RUN tar zxf /EXECDIR/macs/MACS2-2.1.1.20160309.tar.gz -C /EXECDIR/macs
 RUN rm -rf /EXECDIR/macs/MACS2-2.1.1.20160309.tar.gz
