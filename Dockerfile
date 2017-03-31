@@ -92,6 +92,21 @@ WORKDIR /EXECDIR/samtools/samtools-1.3.1
 RUN make
 RUN make prefix=. install
 
+##############################################################
+# Dockerfile Version:   1.0
+# Software:             MACS
+# Software Version:     1.4.2
+# Software Website:     MACS
+# Description:          MACS 
+##############################################################
+
+RUN mkdir/EXECDIR/macs
+RUN wget wget https://github.com/downloads/taoliu/MACS/MACS-1.4.2-1.tar.gz -P /EXECDIR/macs
+RUN tar zxvf /EXECDIR/macs/MACS-1.4.2-1.tar.gz -C /EXECDIR/macs
+RUN rm -rf /EXECDIR/macs/MACS-1.4.2-1.tar.gz
+RUN chmod -R 0755 /EXECDIR/macs/MACS-1.4.2
+WORKDIR /EXECDIR/macs/MACS-1.4.2
+RUN python setup.py install --user
 
 ##############################################################
 # Dockerfile Version:   1.0
