@@ -712,7 +712,7 @@ def main(argv):
 	# ------------------------------ END OF EXECUTIVE DIRECTORY CHECKING
 
 	# ++++++++++++++++++++++++++++++ INDEX DIRECTORY CHECKING
-	args.indexdir = DEFAULT_INDEXDIR + 'hg19/genome'
+	args.indexdir = DEFAULT_INDEXDIR + '/genome'
 	# ------------------------------ END OF INDEX DIRECTORY CHECKING
 
 	# ++++++++++++++++++++++++++++++ CHECKING EXECUTIVES
@@ -882,7 +882,9 @@ def main(argv):
 	# #####################################################################
 	# INPUT DATA PREPARATION
 	# #####################################################################
-	
+	print "# #####################################################################"
+	print "# INPUT DATA PREPARATION"
+	print "# #####################################################################"
 	print "INPUT DATA PREPARATION is in progress"
 	report("INPUT DATA PREPARATION is in progress")
 	print "Execution started at ", time.strftime("%Y-%m-%d %H:%M:%S")
@@ -900,8 +902,11 @@ def main(argv):
 		sys.exit(2)
 	print "Execution completed at ", time.strftime("%Y-%m-%d %H:%M:%S")
 	report("Execution completed at " + time.strftime("%Y-%m-%d %H:%M:%S"))
+	print "# #####################################################################"
+	print "# END OF INPUT DATA PREPARATION"
+	print "# #####################################################################"
 	# ----------------------------- END OF INPUT DATA PREPARATION
-
+	print "\n"
 	# #####################################################################
 	# END OF INPUT DATA PREPARATION
 	# #####################################################################
@@ -909,6 +914,9 @@ def main(argv):
 	# #####################################################################
 	# DESIGN FILE PROCESSING
 	# #####################################################################
+	print "# #####################################################################"
+	print "# DESIGN FILE PROCESSING"
+	print "# #####################################################################"
 	print "PROCESSING DESIGN FILE is in progress"
 	report("PROCESSING DESIGN FILE is in progress")
 	print "Execution started at ", time.strftime("%Y-%m-%d %H:%M:%S")
@@ -926,18 +934,21 @@ def main(argv):
 		sys.exit(2)
 	print "Execution completed at ", time.strftime("%Y-%m-%d %H:%M:%S")
 	report("Execution completed at " + time.strftime("%Y-%m-%d %H:%M:%S"))
+	print "# #####################################################################"
+	print "# END OF DESIGN FILE PROCESSING"
+	print "# #####################################################################"
 	
 	# #####################################################################
 	# END OF DESIGN FILE PROCESSING
 	# #####################################################################
 	# ------------------------------ CHECKING INPUTDIR
 	# ------------------------------ END OF CHECKING INPUTS
-
+	print "\n"
 	print "# #####################################################################"
 	print "# ALIGNMENT STEP"
 	print "# #####################################################################"
-	print "Alignment processing is in progress"
-	report("Alignment processing is in progress")
+	print "Alignment is in progress"
+	report("Alignment is in progress")
 	print "Execution started at ", time.strftime("%Y-%m-%d %H:%M:%S")
 	report("Execution started at " + time.strftime("%Y-%m-%d %H:%M:%S"))
 	
